@@ -1,0 +1,56 @@
+# requirements.txt -- Diffusion-231 / SAeUron style-steering
+# =====================================================================
+# Pinned to the versions in the working `diffusion231` env (Python 3.12, macOS/MPS).
+# Reproduces the RUNTIME deps for:
+#   - notebooks/style_steering_test.ipynb
+#   - run_style_steering.py
+#   - the SAeUron modules under external/SAeUron/ (SAE/, utils/)
+# pip resolves transitive deps (tokenizers, regex, filelock, ...) automatically.
+#
+# Install (fresh venv recommended):
+#   python -m pip install -r requirements.txt
+#
+# NOTE 1 (torch / GPU): the pin below is the CPU/MPS build used on this Mac.
+#   For a CUDA box (e.g. a V100), install the matching CUDA wheel instead, e.g.:
+#     pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+#   then `pip install -r requirements.txt` for the rest.
+#
+# NOTE 2 (transformers): keep < 5. transformers 5.x breaks the diffusers 0.38.0
+#   Stable Diffusion pipeline used here.
+#
+# NOTE 3 (why not `pip freeze`): the source env is conda-based, so a raw freeze
+#   emits dozens of "pkg @ file:///...conda-bld...work" lines that only resolve on
+#   this machine. This curated list is the portable equivalent.
+#
+# NOTE 4: these are the exact working versions. If a pin is unavailable for your
+#   platform/Python, relax that line to `>=` (e.g. `pillow>=11`).
+# =====================================================================
+
+# --- core: Stable Diffusion + the sparse autoencoder ---
+torch==2.5.1
+diffusers==0.38.0
+transformers==4.57.6
+huggingface-hub==0.36.2
+accelerate==1.13.0
+# safetensors is intentionally UNPINNED: it is a transitive dep of diffusers/transformers,
+# and diffusers 0.38.0 requires safetensors>=0.8.0-rc.0. (The conda env happens to ship the
+# older 0.7.0, which still runs, but pinning it makes a clean pip install fail. pip will pull
+# a compatible >=0.8 wheel.)
+
+# --- SAeUron module deps (external/SAeUron/SAE, external/SAeUron/utils) ---
+einops==0.8.0
+natsort==8.4.0
+simple-parsing==0.1.7
+
+# --- arrays / plotting ---
+numpy==2.4.6
+matplotlib==3.10.9
+# pillow (PIL) is unpinned: diffusers pulls a compatible wheel; the env's exact build is
+# conda-sourced and may not exist on PyPI for every platform.
+
+# --- optional: only needed to RUN SAeUron's CLI scripts, not the notebook/run_style_steering.py ---
+# fire==0.7.0      # gather_sae_acts_ca_prompts.py, train.py, etc. (fire.Fire CLIs)
+# tqdm==4.67.3     # progress bars in those scripts (also pulled in transitively)
+
+# --- optional: only to read the paper PDF (SAEUron.pdf), not part of the pipeline ---
+# pypdf==6.12.2
