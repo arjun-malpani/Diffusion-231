@@ -1,0 +1,22 @@
+# Core ML
+torch>=2.0.0
+torchvision>=0.15.0
+
+# CLIP (eval_style.py + eval_content.py)
+open_clip_torch>=2.20.0
+
+# Stable Diffusion pipeline (run_style_steering.py)
+diffusers>=0.21.0
+transformers>=4.30.0
+accelerate>=0.20.0
+
+# SAeUron hard dependencies
+einops
+natsort
+simple_parsing
+fire
+safetensors>=0.3.0
+
+# Image I/O and plotting
+Pillow>=9.0.0
+matplotlib>=3.7.0

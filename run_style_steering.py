@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/Users/ananthnamboothiry/Diffusion-231/diffusion231/bin/python
 """
 run_style_steering.py
 =====================================================================
@@ -187,7 +187,7 @@ def save_grid(images, titles, suptitle, filename, ncols=None):
 #   * compute_feature_importance scores Van-Gogh-specificity per feature,
 #   * argmax = the style feature; keep the top-5 for the Top-tau figure.
 # ================================================================== #
-RUN_SCORING = True                                         # False => skip scoring, use FALLBACK_TOP5
+RUN_SCORING = False                                        # False => skip scoring, use FALLBACK_TOP5
 FALLBACK_TOP5 = [10765, 17145, 14323, 10224, 6618]         # result of a previous scoring run
 
 CONTENT = ["a house", "a cat", "a mountain", "a bicycle", "a tree", "a boat"]   # neutral content words
@@ -248,7 +248,7 @@ VANGOGH_IDX = TOP5[0]                                       # the single best fe
 # ================================================================== #
 # Common settings for every generation figure below
 # ================================================================== #
-PROMPT, SEED = "a photo of a cat", 40                      # neutral prompt (no style word) + fixed seed
+PROMPT, SEED = "a cat", 40                      # neutral prompt (no style word) + fixed seed
 
 # ================================================================== #
 # PART 2 - FIGURE 1: naive strength sweep, adding to BOTH CFG halves.
@@ -308,5 +308,15 @@ for tau, s, label in specs:
     imgs.append(generate(PROMPT, hook=hook, seed=SEED)); titles.append(label)
     log("fig4", label)
 save_grid(imgs, titles, f"Fig 4: Top-tau conditional-only on '{PROMPT}'", "vangogh_cat_topk.png", ncols=4)
+# specs order: baseline, tau1-s40, tau1-s70, tau3-s40, tau3-s70, tau5-s40, tau5-s70
+imgs[3].save(out("cat_steered_tau3_s40.png"))              # tau=3 s=40: best single SAE result
+log("saved cat_steered_tau3_s40.png")
+
+# ================================================================== #
+# PART 6 - Prompt-conditioned Van Gogh image (used by eval scripts)
+# ================================================================== #
+prompted = generate("a photo of a cat in Van Gogh style", hook=None, seed=SEED)
+prompted.save(out("vangogh_cat_prompted.png"))
+log("saved vangogh_cat_prompted.png")
 
 log("ALL DONE -> images are in output_img/")
