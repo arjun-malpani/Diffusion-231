@@ -5,6 +5,7 @@
 #   - notebooks/style_steering_test.ipynb
 #   - run_style_steering.py
 #   - the SAeUron modules under external/SAeUron/ (SAE/, utils/)
+#   - eval_style.py and eval_content.py (CLIP-based evaluation)
 # pip resolves transitive deps (tokenizers, regex, filelock, ...) automatically.
 #
 # Install (fresh venv recommended):
@@ -47,6 +48,10 @@ numpy==2.4.6
 matplotlib==3.10.9
 # pillow (PIL) is unpinned: diffusers pulls a compatible wheel; the env's exact build is
 # conda-sourced and may not exist on PyPI for every platform.
+
+# --- eval scripts: CLIP-based style and content scoring ---
+open_clip_torch>=2.20.0
+torchvision>=0.15.0
 
 # --- optional: only needed to RUN SAeUron's CLI scripts, not the notebook/run_style_steering.py ---
 # fire==0.7.0      # gather_sae_acts_ca_prompts.py, train.py, etc. (fire.Fire CLIs)
