@@ -23,12 +23,11 @@ The final artifact is a state_dict-only `sae_final.pt` for inference.
 
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from torch.utils.data import DataLoader
+sys.stdout.reconfigure(line_buffering=True)   # flush logs line-by-line even when piped to tee
 
 from diffusion_sae.sae   import SAE
 from diffusion_sae.train import train, plot_history
-from diffusion_sae.data  import ActivationShardDataset
+from diffusion_sae.data  import StreamingShardDataset
 
 
 # ============================ CONFIG ============================
@@ -42,22 +41,23 @@ LR          = 4e-4                            # SAeUron
 CKPT_EVERY  = 5000
 CKPT_DIR    = "checkpoints/sae_v1"
 PLOT_PATH   = "output_img/sae_v1_train_curves.png"
+SHARD_BUFFER = 2                              # shards held/mixed in RAM at once (~2 GB each)
 # ================================================================
 
 
 # ---- dataset ----
-ds = ActivationShardDataset(DATA_DIR)
-print(f"dataset: {ds.info()}")
-
-loader = DataLoader(
-    ds,
+# StreamingShardDataset reads whole shards sequentially and shuffles in RAM, so
+# it stays GPU-bound even when the data (78 GB) dwarfs RAM (15 GB). It yields
+# ready-made batches, so it IS the loader -- no DataLoader wrapper.
+loader = StreamingShardDataset(
+    DATA_DIR,
     batch_size=BATCH_SIZE,
     shuffle=True,
-    num_workers=0,            # MPS prefers 0; on CUDA you can bump to 4 if I/O-bound
-    pin_memory=False,         # MPS doesn't support pinned memory
+    shard_buffer=SHARD_BUFFER,
     drop_last=True,
 )
-print(f"batches/epoch: {len(loader):,} | samples: {len(ds):,}")
+print(f"dataset: {len(loader):,} batches/epoch | {loader.total:,} samples | "
+      f"d_in={loader.d_in} | shard_buffer={SHARD_BUFFER}")
 
 # ---- model ----
 sae = SAE(d_in=D_IN, num_latents=NUM_LATENTS)

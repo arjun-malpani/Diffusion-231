@@ -1,0 +1,458 @@
+/opt/pytorch/lib64/python3.13/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+loaded 1581 anchor prompts from data/prompts/anchor_prompts_all.txt
+built 4000 prompts (10 styles x 400 anchors)
+output dir: data/activations/style_v1
+loading SD: CompVis/stable-diffusion-v1-4 ...
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-06-04 09:25:54.277840070 [W:onnxruntime:Default, device_discovery.cc:283 GetGpuDevices] Failed to detect devices under "/sys/class/drm/card0": device_discovery.cc:93 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:00,  8.49it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00,  8.71it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:00<00:00,  4.34it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00,  6.57it/s]
+You have disabled the safety checker for <class 'diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion.StableDiffusionPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+
+=== collecting (decode_frames=False) ===
+  [  10/4000]  0.60 prompts/s  eta ~110 min
+  [  20/4000]  0.61 prompts/s  eta ~109 min
+  [  30/4000]  0.61 prompts/s  eta ~108 min
+  [  40/4000]  0.61 prompts/s  eta ~108 min
+  [  50/4000]  0.61 prompts/s  eta ~107 min
+  [  60/4000]  0.61 prompts/s  eta ~107 min
+  [  70/4000]  0.61 prompts/s  eta ~107 min
+  [  80/4000]  0.61 prompts/s  eta ~107 min
+  [  90/4000]  0.61 prompts/s  eta ~106 min
+  [ 100/4000]  0.61 prompts/s  eta ~106 min
+  saved shard_00000.pt  shape=(793600, 1280) (2032 MB)   elapsed: 2.8 min
+  [ 110/4000]  0.60 prompts/s  eta ~109 min
+  [ 120/4000]  0.60 prompts/s  eta ~108 min
+  [ 130/4000]  0.60 prompts/s  eta ~107 min
+  [ 140/4000]  0.60 prompts/s  eta ~107 min
+  [ 150/4000]  0.60 prompts/s  eta ~107 min
+  [ 160/4000]  0.60 prompts/s  eta ~106 min
+  [ 170/4000]  0.60 prompts/s  eta ~106 min
+  [ 180/4000]  0.60 prompts/s  eta ~105 min
+  [ 190/4000]  0.60 prompts/s  eta ~105 min
+  [ 200/4000]  0.61 prompts/s  eta ~105 min
+  saved shard_00001.pt  shape=(793600, 1280) (2032 MB)   elapsed: 5.6 min
+  [ 210/4000]  0.60 prompts/s  eta ~106 min
+  [ 220/4000]  0.60 prompts/s  eta ~105 min
+  [ 230/4000]  0.60 prompts/s  eta ~105 min
+  [ 240/4000]  0.60 prompts/s  eta ~105 min
+  [ 250/4000]  0.60 prompts/s  eta ~104 min
+  [ 260/4000]  0.60 prompts/s  eta ~104 min
+  [ 270/4000]  0.60 prompts/s  eta ~103 min
+  [ 280/4000]  0.60 prompts/s  eta ~103 min
+  [ 290/4000]  0.60 prompts/s  eta ~103 min
+  [ 300/4000]  0.60 prompts/s  eta ~102 min
+  saved shard_00002.pt  shape=(793600, 1280) (2032 MB)   elapsed: 8.4 min
+  [ 310/4000]  0.60 prompts/s  eta ~103 min
+  [ 320/4000]  0.60 prompts/s  eta ~103 min
+  [ 330/4000]  0.60 prompts/s  eta ~102 min
+  [ 340/4000]  0.60 prompts/s  eta ~102 min
+  [ 350/4000]  0.60 prompts/s  eta ~102 min
+  [ 360/4000]  0.60 prompts/s  eta ~101 min
+  [ 370/4000]  0.60 prompts/s  eta ~101 min
+  [ 380/4000]  0.60 prompts/s  eta ~101 min
+  [ 390/4000]  0.60 prompts/s  eta ~100 min
+  [ 400/4000]  0.60 prompts/s  eta ~100 min
+  saved shard_00003.pt  shape=(793600, 1280) (2032 MB)   elapsed: 11.2 min
+  [ 410/4000]  0.60 prompts/s  eta ~100 min
+  [ 420/4000]  0.60 prompts/s  eta ~100 min
+  [ 430/4000]  0.60 prompts/s  eta ~100 min
+  [ 440/4000]  0.60 prompts/s  eta ~99 min
+  [ 450/4000]  0.60 prompts/s  eta ~99 min
+  [ 460/4000]  0.60 prompts/s  eta ~99 min
+  [ 470/4000]  0.60 prompts/s  eta ~98 min
+  [ 480/4000]  0.60 prompts/s  eta ~98 min
+  [ 490/4000]  0.60 prompts/s  eta ~98 min
+  [ 500/4000]  0.60 prompts/s  eta ~97 min
+  saved shard_00004.pt  shape=(793600, 1280) (2032 MB)   elapsed: 14.0 min
+  [ 510/4000]  0.60 prompts/s  eta ~98 min
+  [ 520/4000]  0.60 prompts/s  eta ~97 min
+  [ 530/4000]  0.60 prompts/s  eta ~97 min
+  [ 540/4000]  0.60 prompts/s  eta ~97 min
+  [ 550/4000]  0.60 prompts/s  eta ~96 min
+  [ 560/4000]  0.60 prompts/s  eta ~96 min
+  [ 570/4000]  0.60 prompts/s  eta ~96 min
+  [ 580/4000]  0.60 prompts/s  eta ~95 min
+  [ 590/4000]  0.60 prompts/s  eta ~95 min
+  [ 600/4000]  0.60 prompts/s  eta ~95 min
+  saved shard_00005.pt  shape=(793600, 1280) (2032 MB)   elapsed: 16.8 min
+  [ 610/4000]  0.60 prompts/s  eta ~95 min
+  [ 620/4000]  0.60 prompts/s  eta ~95 min
+  [ 630/4000]  0.60 prompts/s  eta ~94 min
+  [ 640/4000]  0.60 prompts/s  eta ~94 min
+  [ 650/4000]  0.60 prompts/s  eta ~94 min
+  [ 660/4000]  0.60 prompts/s  eta ~93 min
+  [ 670/4000]  0.60 prompts/s  eta ~93 min
+  [ 680/4000]  0.60 prompts/s  eta ~93 min
+  [ 690/4000]  0.60 prompts/s  eta ~92 min
+  [ 700/4000]  0.60 prompts/s  eta ~92 min
+  saved shard_00006.pt  shape=(793600, 1280) (2032 MB)   elapsed: 19.6 min
+  [ 710/4000]  0.59 prompts/s  eta ~92 min
+  [ 720/4000]  0.59 prompts/s  eta ~92 min
+  [ 730/4000]  0.60 prompts/s  eta ~92 min
+  [ 740/4000]  0.60 prompts/s  eta ~91 min
+  [ 750/4000]  0.60 prompts/s  eta ~91 min
+  [ 760/4000]  0.60 prompts/s  eta ~91 min
+  [ 770/4000]  0.60 prompts/s  eta ~90 min
+  [ 780/4000]  0.60 prompts/s  eta ~90 min
+  [ 790/4000]  0.60 prompts/s  eta ~90 min
+  [ 800/4000]  0.60 prompts/s  eta ~89 min
+  saved shard_00007.pt  shape=(793600, 1280) (2032 MB)   elapsed: 22.4 min
+  [ 810/4000]  0.59 prompts/s  eta ~89 min
+  [ 820/4000]  0.59 prompts/s  eta ~89 min
+  [ 830/4000]  0.59 prompts/s  eta ~89 min
+  [ 840/4000]  0.60 prompts/s  eta ~89 min
+  [ 850/4000]  0.60 prompts/s  eta ~88 min
+  [ 860/4000]  0.60 prompts/s  eta ~88 min
+  [ 870/4000]  0.60 prompts/s  eta ~88 min
+  [ 880/4000]  0.60 prompts/s  eta ~87 min
+  [ 890/4000]  0.60 prompts/s  eta ~87 min
+  [ 900/4000]  0.60 prompts/s  eta ~87 min
+  saved shard_00008.pt  shape=(793600, 1280) (2032 MB)   elapsed: 25.2 min
+  [ 910/4000]  0.59 prompts/s  eta ~87 min
+  [ 920/4000]  0.59 prompts/s  eta ~86 min
+  [ 930/4000]  0.59 prompts/s  eta ~86 min
+  [ 940/4000]  0.59 prompts/s  eta ~86 min
+  [ 950/4000]  0.60 prompts/s  eta ~85 min
+  [ 960/4000]  0.60 prompts/s  eta ~85 min
+  [ 970/4000]  0.60 prompts/s  eta ~85 min
+  [ 980/4000]  0.60 prompts/s  eta ~84 min
+  [ 990/4000]  0.60 prompts/s  eta ~84 min
+  [1000/4000]  0.60 prompts/s  eta ~84 min
+  saved shard_00009.pt  shape=(793600, 1280) (2032 MB)   elapsed: 28.1 min
+  [1010/4000]  0.59 prompts/s  eta ~84 min
+  [1020/4000]  0.59 prompts/s  eta ~84 min
+  [1030/4000]  0.59 prompts/s  eta ~83 min
+  [1040/4000]  0.59 prompts/s  eta ~83 min
+  [1050/4000]  0.59 prompts/s  eta ~83 min
+  [1060/4000]  0.60 prompts/s  eta ~82 min
+  [1070/4000]  0.60 prompts/s  eta ~82 min
+  [1080/4000]  0.60 prompts/s  eta ~82 min
+  [1090/4000]  0.60 prompts/s  eta ~81 min
+  [1100/4000]  0.60 prompts/s  eta ~81 min
+  saved shard_00010.pt  shape=(793600, 1280) (2032 MB)   elapsed: 30.9 min
+  [1110/4000]  0.59 prompts/s  eta ~81 min
+  [1120/4000]  0.59 prompts/s  eta ~81 min
+  [1130/4000]  0.59 prompts/s  eta ~80 min
+  [1140/4000]  0.59 prompts/s  eta ~80 min
+  [1150/4000]  0.59 prompts/s  eta ~80 min
+  [1160/4000]  0.59 prompts/s  eta ~80 min
+  [1170/4000]  0.60 prompts/s  eta ~79 min
+  [1180/4000]  0.60 prompts/s  eta ~79 min
+  [1190/4000]  0.60 prompts/s  eta ~79 min
+  [1200/4000]  0.60 prompts/s  eta ~78 min
+  saved shard_00011.pt  shape=(793600, 1280) (2032 MB)   elapsed: 33.7 min
+  [1210/4000]  0.59 prompts/s  eta ~78 min
+  [1220/4000]  0.59 prompts/s  eta ~78 min
+  [1230/4000]  0.59 prompts/s  eta ~78 min
+  [1240/4000]  0.59 prompts/s  eta ~77 min
+  [1250/4000]  0.59 prompts/s  eta ~77 min
+  [1260/4000]  0.59 prompts/s  eta ~77 min
+  [1270/4000]  0.60 prompts/s  eta ~76 min
+  [1280/4000]  0.60 prompts/s  eta ~76 min
+  [1290/4000]  0.60 prompts/s  eta ~76 min
+  [1300/4000]  0.60 prompts/s  eta ~76 min
+  saved shard_00012.pt  shape=(793600, 1280) (2032 MB)   elapsed: 36.5 min
+  [1310/4000]  0.59 prompts/s  eta ~75 min
+  [1320/4000]  0.59 prompts/s  eta ~75 min
+  [1330/4000]  0.59 prompts/s  eta ~75 min
+  [1340/4000]  0.59 prompts/s  eta ~75 min
+  [1350/4000]  0.59 prompts/s  eta ~74 min
+  [1360/4000]  0.59 prompts/s  eta ~74 min
+  [1370/4000]  0.59 prompts/s  eta ~74 min
+  [1380/4000]  0.60 prompts/s  eta ~73 min
+  [1390/4000]  0.60 prompts/s  eta ~73 min
+  [1400/4000]  0.60 prompts/s  eta ~73 min
+  saved shard_00013.pt  shape=(793600, 1280) (2032 MB)   elapsed: 39.3 min
+  [1410/4000]  0.59 prompts/s  eta ~73 min
+  [1420/4000]  0.59 prompts/s  eta ~72 min
+  [1430/4000]  0.59 prompts/s  eta ~72 min
+  [1440/4000]  0.59 prompts/s  eta ~72 min
+  [1450/4000]  0.59 prompts/s  eta ~71 min
+  [1460/4000]  0.59 prompts/s  eta ~71 min
+  [1470/4000]  0.59 prompts/s  eta ~71 min
+  [1480/4000]  0.60 prompts/s  eta ~71 min
+  [1490/4000]  0.60 prompts/s  eta ~70 min
+  [1500/4000]  0.60 prompts/s  eta ~70 min
+  saved shard_00014.pt  shape=(793600, 1280) (2032 MB)   elapsed: 42.1 min
+  [1510/4000]  0.59 prompts/s  eta ~70 min
+  [1520/4000]  0.59 prompts/s  eta ~70 min
+  [1530/4000]  0.59 prompts/s  eta ~69 min
+  [1540/4000]  0.59 prompts/s  eta ~69 min
+  [1550/4000]  0.59 prompts/s  eta ~69 min
+  [1560/4000]  0.59 prompts/s  eta ~68 min
+  [1570/4000]  0.59 prompts/s  eta ~68 min
+  [1580/4000]  0.59 prompts/s  eta ~68 min
+  [1590/4000]  0.60 prompts/s  eta ~68 min
+  [1600/4000]  0.60 prompts/s  eta ~67 min
+  saved shard_00015.pt  shape=(793600, 1280) (2032 MB)   elapsed: 44.9 min
+  [1610/4000]  0.59 prompts/s  eta ~67 min
+  [1620/4000]  0.59 prompts/s  eta ~67 min
+  [1630/4000]  0.59 prompts/s  eta ~66 min
+  [1640/4000]  0.59 prompts/s  eta ~66 min
+  [1650/4000]  0.59 prompts/s  eta ~66 min
+  [1660/4000]  0.59 prompts/s  eta ~66 min
+  [1670/4000]  0.59 prompts/s  eta ~65 min
+  [1680/4000]  0.59 prompts/s  eta ~65 min
+  [1690/4000]  0.59 prompts/s  eta ~65 min
+  [1700/4000]  0.60 prompts/s  eta ~64 min
+  saved shard_00016.pt  shape=(793600, 1280) (2032 MB)   elapsed: 47.7 min
+  [1710/4000]  0.59 prompts/s  eta ~64 min
+  [1720/4000]  0.59 prompts/s  eta ~64 min
+  [1730/4000]  0.59 prompts/s  eta ~64 min
+  [1740/4000]  0.59 prompts/s  eta ~63 min
+  [1750/4000]  0.59 prompts/s  eta ~63 min
+  [1760/4000]  0.59 prompts/s  eta ~63 min
+  [1770/4000]  0.59 prompts/s  eta ~62 min
+  [1780/4000]  0.59 prompts/s  eta ~62 min
+  [1790/4000]  0.59 prompts/s  eta ~62 min
+  [1800/4000]  0.59 prompts/s  eta ~62 min
+  saved shard_00017.pt  shape=(793600, 1280) (2032 MB)   elapsed: 50.5 min
+  [1810/4000]  0.59 prompts/s  eta ~61 min
+  [1820/4000]  0.59 prompts/s  eta ~61 min
+  [1830/4000]  0.59 prompts/s  eta ~61 min
+  [1840/4000]  0.59 prompts/s  eta ~61 min
+  [1850/4000]  0.59 prompts/s  eta ~60 min
+  [1860/4000]  0.59 prompts/s  eta ~60 min
+  [1870/4000]  0.59 prompts/s  eta ~60 min
+  [1880/4000]  0.59 prompts/s  eta ~59 min
+  [1890/4000]  0.59 prompts/s  eta ~59 min
+  [1900/4000]  0.59 prompts/s  eta ~59 min
+  saved shard_00018.pt  shape=(793600, 1280) (2032 MB)   elapsed: 53.3 min
+  [1910/4000]  0.59 prompts/s  eta ~59 min
+  [1920/4000]  0.59 prompts/s  eta ~58 min
+  [1930/4000]  0.59 prompts/s  eta ~58 min
+  [1940/4000]  0.59 prompts/s  eta ~58 min
+  [1950/4000]  0.59 prompts/s  eta ~57 min
+  [1960/4000]  0.59 prompts/s  eta ~57 min
+  [1970/4000]  0.59 prompts/s  eta ~57 min
+  [1980/4000]  0.59 prompts/s  eta ~57 min
+  [1990/4000]  0.59 prompts/s  eta ~56 min
+  [2000/4000]  0.59 prompts/s  eta ~56 min
+  saved shard_00019.pt  shape=(793600, 1280) (2032 MB)   elapsed: 56.1 min
+  [2010/4000]  0.59 prompts/s  eta ~56 min
+  [2020/4000]  0.59 prompts/s  eta ~56 min
+  [2030/4000]  0.59 prompts/s  eta ~55 min
+  [2040/4000]  0.59 prompts/s  eta ~55 min
+  [2050/4000]  0.59 prompts/s  eta ~55 min
+  [2060/4000]  0.59 prompts/s  eta ~54 min
+  [2070/4000]  0.59 prompts/s  eta ~54 min
+  [2080/4000]  0.59 prompts/s  eta ~54 min
+  [2090/4000]  0.59 prompts/s  eta ~54 min
+  [2100/4000]  0.59 prompts/s  eta ~53 min
+  saved shard_00020.pt  shape=(793600, 1280) (2032 MB)   elapsed: 58.9 min
+  [2110/4000]  0.59 prompts/s  eta ~53 min
+  [2120/4000]  0.59 prompts/s  eta ~53 min
+  [2130/4000]  0.59 prompts/s  eta ~52 min
+  [2140/4000]  0.59 prompts/s  eta ~52 min
+  [2150/4000]  0.59 prompts/s  eta ~52 min
+  [2160/4000]  0.59 prompts/s  eta ~52 min
+  [2170/4000]  0.59 prompts/s  eta ~51 min
+  [2180/4000]  0.59 prompts/s  eta ~51 min
+  [2190/4000]  0.59 prompts/s  eta ~51 min
+  [2200/4000]  0.59 prompts/s  eta ~50 min
+  saved shard_00021.pt  shape=(793600, 1280) (2032 MB)   elapsed: 61.7 min
+  [2210/4000]  0.59 prompts/s  eta ~50 min
+  [2220/4000]  0.59 prompts/s  eta ~50 min
+  [2230/4000]  0.59 prompts/s  eta ~50 min
+  [2240/4000]  0.59 prompts/s  eta ~49 min
+  [2250/4000]  0.59 prompts/s  eta ~49 min
+  [2260/4000]  0.59 prompts/s  eta ~49 min
+  [2270/4000]  0.59 prompts/s  eta ~48 min
+  [2280/4000]  0.59 prompts/s  eta ~48 min
+  [2290/4000]  0.59 prompts/s  eta ~48 min
+  [2300/4000]  0.59 prompts/s  eta ~48 min
+  saved shard_00022.pt  shape=(793600, 1280) (2032 MB)   elapsed: 64.5 min
+  [2310/4000]  0.59 prompts/s  eta ~47 min
+  [2320/4000]  0.59 prompts/s  eta ~47 min
+  [2330/4000]  0.59 prompts/s  eta ~47 min
+  [2340/4000]  0.59 prompts/s  eta ~47 min
+  [2350/4000]  0.59 prompts/s  eta ~46 min
+  [2360/4000]  0.59 prompts/s  eta ~46 min
+  [2370/4000]  0.59 prompts/s  eta ~46 min
+  [2380/4000]  0.59 prompts/s  eta ~45 min
+  [2390/4000]  0.59 prompts/s  eta ~45 min
+  [2400/4000]  0.59 prompts/s  eta ~45 min
+  saved shard_00023.pt  shape=(793600, 1280) (2032 MB)   elapsed: 67.3 min
+  [2410/4000]  0.59 prompts/s  eta ~45 min
+  [2420/4000]  0.59 prompts/s  eta ~44 min
+  [2430/4000]  0.59 prompts/s  eta ~44 min
+  [2440/4000]  0.59 prompts/s  eta ~44 min
+  [2450/4000]  0.59 prompts/s  eta ~43 min
+  [2460/4000]  0.59 prompts/s  eta ~43 min
+  [2470/4000]  0.59 prompts/s  eta ~43 min
+  [2480/4000]  0.59 prompts/s  eta ~43 min
+  [2490/4000]  0.59 prompts/s  eta ~42 min
+  [2500/4000]  0.59 prompts/s  eta ~42 min
+  saved shard_00024.pt  shape=(793600, 1280) (2032 MB)   elapsed: 70.2 min
+  [2510/4000]  0.59 prompts/s  eta ~42 min
+  [2520/4000]  0.59 prompts/s  eta ~42 min
+  [2530/4000]  0.59 prompts/s  eta ~41 min
+  [2540/4000]  0.59 prompts/s  eta ~41 min
+  [2550/4000]  0.59 prompts/s  eta ~41 min
+  [2560/4000]  0.59 prompts/s  eta ~40 min
+  [2570/4000]  0.59 prompts/s  eta ~40 min
+  [2580/4000]  0.59 prompts/s  eta ~40 min
+  [2590/4000]  0.59 prompts/s  eta ~40 min
+  [2600/4000]  0.59 prompts/s  eta ~39 min
+  saved shard_00025.pt  shape=(793600, 1280) (2032 MB)   elapsed: 73.0 min
+  [2610/4000]  0.59 prompts/s  eta ~39 min
+  [2620/4000]  0.59 prompts/s  eta ~39 min
+  [2630/4000]  0.59 prompts/s  eta ~38 min
+  [2640/4000]  0.59 prompts/s  eta ~38 min
+  [2650/4000]  0.59 prompts/s  eta ~38 min
+  [2660/4000]  0.59 prompts/s  eta ~38 min
+  [2670/4000]  0.59 prompts/s  eta ~37 min
+  [2680/4000]  0.59 prompts/s  eta ~37 min
+  [2690/4000]  0.59 prompts/s  eta ~37 min
+  [2700/4000]  0.59 prompts/s  eta ~36 min
+  saved shard_00026.pt  shape=(793600, 1280) (2032 MB)   elapsed: 75.8 min
+  [2710/4000]  0.59 prompts/s  eta ~36 min
+  [2720/4000]  0.59 prompts/s  eta ~36 min
+  [2730/4000]  0.59 prompts/s  eta ~36 min
+  [2740/4000]  0.59 prompts/s  eta ~35 min
+  [2750/4000]  0.59 prompts/s  eta ~35 min
+  [2760/4000]  0.59 prompts/s  eta ~35 min
+  [2770/4000]  0.59 prompts/s  eta ~34 min
+  [2780/4000]  0.59 prompts/s  eta ~34 min
+  [2790/4000]  0.59 prompts/s  eta ~34 min
+  [2800/4000]  0.59 prompts/s  eta ~34 min
+  saved shard_00027.pt  shape=(793600, 1280) (2032 MB)   elapsed: 78.6 min
+  [2810/4000]  0.59 prompts/s  eta ~33 min
+  [2820/4000]  0.59 prompts/s  eta ~33 min
+  [2830/4000]  0.59 prompts/s  eta ~33 min
+  [2840/4000]  0.59 prompts/s  eta ~33 min
+  [2850/4000]  0.59 prompts/s  eta ~32 min
+  [2860/4000]  0.59 prompts/s  eta ~32 min
+  [2870/4000]  0.59 prompts/s  eta ~32 min
+  [2880/4000]  0.59 prompts/s  eta ~31 min
+  [2890/4000]  0.59 prompts/s  eta ~31 min
+  [2900/4000]  0.59 prompts/s  eta ~31 min
+  saved shard_00028.pt  shape=(793600, 1280) (2032 MB)   elapsed: 81.4 min
+  [2910/4000]  0.59 prompts/s  eta ~31 min
+  [2920/4000]  0.59 prompts/s  eta ~30 min
+  [2930/4000]  0.59 prompts/s  eta ~30 min
+  [2940/4000]  0.59 prompts/s  eta ~30 min
+  [2950/4000]  0.59 prompts/s  eta ~29 min
+  [2960/4000]  0.59 prompts/s  eta ~29 min
+  [2970/4000]  0.59 prompts/s  eta ~29 min
+  [2980/4000]  0.59 prompts/s  eta ~29 min
+  [2990/4000]  0.59 prompts/s  eta ~28 min
+  [3000/4000]  0.59 prompts/s  eta ~28 min
+  saved shard_00029.pt  shape=(793600, 1280) (2032 MB)   elapsed: 84.2 min
+  [3010/4000]  0.59 prompts/s  eta ~28 min
+  [3020/4000]  0.59 prompts/s  eta ~27 min
+  [3030/4000]  0.59 prompts/s  eta ~27 min
+  [3040/4000]  0.59 prompts/s  eta ~27 min
+  [3050/4000]  0.59 prompts/s  eta ~27 min
+  [3060/4000]  0.59 prompts/s  eta ~26 min
+  [3070/4000]  0.59 prompts/s  eta ~26 min
+  [3080/4000]  0.59 prompts/s  eta ~26 min
+  [3090/4000]  0.59 prompts/s  eta ~26 min
+  [3100/4000]  0.59 prompts/s  eta ~25 min
+  saved shard_00030.pt  shape=(793600, 1280) (2032 MB)   elapsed: 87.0 min
+  [3110/4000]  0.59 prompts/s  eta ~25 min
+  [3120/4000]  0.59 prompts/s  eta ~25 min
+  [3130/4000]  0.59 prompts/s  eta ~24 min
+  [3140/4000]  0.59 prompts/s  eta ~24 min
+  [3150/4000]  0.59 prompts/s  eta ~24 min
+  [3160/4000]  0.59 prompts/s  eta ~24 min
+  [3170/4000]  0.59 prompts/s  eta ~23 min
+  [3180/4000]  0.59 prompts/s  eta ~23 min
+  [3190/4000]  0.59 prompts/s  eta ~23 min
+  [3200/4000]  0.59 prompts/s  eta ~22 min
+  saved shard_00031.pt  shape=(793600, 1280) (2032 MB)   elapsed: 89.8 min
+  [3210/4000]  0.59 prompts/s  eta ~22 min
+  [3220/4000]  0.59 prompts/s  eta ~22 min
+  [3230/4000]  0.59 prompts/s  eta ~22 min
+  [3240/4000]  0.59 prompts/s  eta ~21 min
+  [3250/4000]  0.59 prompts/s  eta ~21 min
+  [3260/4000]  0.59 prompts/s  eta ~21 min
+  [3270/4000]  0.59 prompts/s  eta ~20 min
+  [3280/4000]  0.59 prompts/s  eta ~20 min
+  [3290/4000]  0.59 prompts/s  eta ~20 min
+  [3300/4000]  0.59 prompts/s  eta ~20 min
+  saved shard_00032.pt  shape=(793600, 1280) (2032 MB)   elapsed: 92.6 min
+  [3310/4000]  0.59 prompts/s  eta ~19 min
+  [3320/4000]  0.59 prompts/s  eta ~19 min
+  [3330/4000]  0.59 prompts/s  eta ~19 min
+  [3340/4000]  0.59 prompts/s  eta ~19 min
+  [3350/4000]  0.59 prompts/s  eta ~18 min
+  [3360/4000]  0.59 prompts/s  eta ~18 min
+  [3370/4000]  0.59 prompts/s  eta ~18 min
+  [3380/4000]  0.59 prompts/s  eta ~17 min
+  [3390/4000]  0.59 prompts/s  eta ~17 min
+  [3400/4000]  0.59 prompts/s  eta ~17 min
+  saved shard_00033.pt  shape=(793600, 1280) (2032 MB)   elapsed: 95.4 min
+  [3410/4000]  0.59 prompts/s  eta ~17 min
+  [3420/4000]  0.59 prompts/s  eta ~16 min
+  [3430/4000]  0.59 prompts/s  eta ~16 min
+  [3440/4000]  0.59 prompts/s  eta ~16 min
+  [3450/4000]  0.59 prompts/s  eta ~15 min
+  [3460/4000]  0.59 prompts/s  eta ~15 min
+  [3470/4000]  0.59 prompts/s  eta ~15 min
+  [3480/4000]  0.59 prompts/s  eta ~15 min
+  [3490/4000]  0.59 prompts/s  eta ~14 min
+  [3500/4000]  0.59 prompts/s  eta ~14 min
+  saved shard_00034.pt  shape=(793600, 1280) (2032 MB)   elapsed: 98.2 min
+  [3510/4000]  0.59 prompts/s  eta ~14 min
+  [3520/4000]  0.59 prompts/s  eta ~13 min
+  [3530/4000]  0.59 prompts/s  eta ~13 min
+  [3540/4000]  0.59 prompts/s  eta ~13 min
+  [3550/4000]  0.59 prompts/s  eta ~13 min
+  [3560/4000]  0.59 prompts/s  eta ~12 min
+  [3570/4000]  0.59 prompts/s  eta ~12 min
+  [3580/4000]  0.59 prompts/s  eta ~12 min
+  [3590/4000]  0.59 prompts/s  eta ~11 min
+  [3600/4000]  0.59 prompts/s  eta ~11 min
+  saved shard_00035.pt  shape=(793600, 1280) (2032 MB)   elapsed: 101.0 min
+  [3610/4000]  0.59 prompts/s  eta ~11 min
+  [3620/4000]  0.59 prompts/s  eta ~11 min
+  [3630/4000]  0.59 prompts/s  eta ~10 min
+  [3640/4000]  0.59 prompts/s  eta ~10 min
+  [3650/4000]  0.59 prompts/s  eta ~10 min
+  [3660/4000]  0.59 prompts/s  eta ~10 min
+  [3670/4000]  0.59 prompts/s  eta ~9 min
+  [3680/4000]  0.59 prompts/s  eta ~9 min
+  [3690/4000]  0.59 prompts/s  eta ~9 min
+  [3700/4000]  0.59 prompts/s  eta ~8 min
+  saved shard_00036.pt  shape=(793600, 1280) (2032 MB)   elapsed: 103.8 min
+  [3710/4000]  0.59 prompts/s  eta ~8 min
+  [3720/4000]  0.59 prompts/s  eta ~8 min
+  [3730/4000]  0.59 prompts/s  eta ~8 min
+  [3740/4000]  0.59 prompts/s  eta ~7 min
+  [3750/4000]  0.59 prompts/s  eta ~7 min
+  [3760/4000]  0.59 prompts/s  eta ~7 min
+  [3770/4000]  0.59 prompts/s  eta ~6 min
+  [3780/4000]  0.59 prompts/s  eta ~6 min
+  [3790/4000]  0.59 prompts/s  eta ~6 min
+  [3800/4000]  0.59 prompts/s  eta ~6 min
+  saved shard_00037.pt  shape=(793600, 1280) (2032 MB)   elapsed: 106.6 min
+  [3810/4000]  0.59 prompts/s  eta ~5 min
+  [3820/4000]  0.59 prompts/s  eta ~5 min
+  [3830/4000]  0.59 prompts/s  eta ~5 min
+  [3840/4000]  0.59 prompts/s  eta ~4 min
+  [3850/4000]  0.59 prompts/s  eta ~4 min
+  [3860/4000]  0.59 prompts/s  eta ~4 min
+  [3870/4000]  0.59 prompts/s  eta ~4 min
+  [3880/4000]  0.59 prompts/s  eta ~3 min
+  [3890/4000]  0.59 prompts/s  eta ~3 min
+  [3900/4000]  0.59 prompts/s  eta ~3 min
+  saved shard_00038.pt  shape=(793600, 1280) (2032 MB)   elapsed: 109.5 min
+  [3910/4000]  0.59 prompts/s  eta ~3 min
+  [3920/4000]  0.59 prompts/s  eta ~2 min
+  [3930/4000]  0.59 prompts/s  eta ~2 min
+  [3940/4000]  0.59 prompts/s  eta ~2 min
+  [3950/4000]  0.59 prompts/s  eta ~1 min
+  [3960/4000]  0.59 prompts/s  eta ~1 min
+  [3970/4000]  0.59 prompts/s  eta ~1 min
+  [3980/4000]  0.59 prompts/s  eta ~1 min
+  [3990/4000]  0.59 prompts/s  eta ~0 min
+  [4000/4000]  0.59 prompts/s  eta ~0 min
+  saved shard_00039.pt  shape=(793600, 1280) (2032 MB)   elapsed: 112.3 min
+
+=== collection complete in 112.3 min ===
+40 shards | 31,744,000 samples | d_in=1280 | on-disk dtype=torch.float16 | returns torch.float32
+first row: shape=(1280,)  dtype=torch.float32
+last  row: shape=(1280,)  dtype=torch.float32
+
+ready to train: `python scripts/train_sae.py` will load from data/activations/style_v1/

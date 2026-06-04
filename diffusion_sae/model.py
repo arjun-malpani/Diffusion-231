@@ -20,11 +20,11 @@ from diffusers import StableDiffusionPipeline
 
 from PIL import Image 
 
-from .config import DEVICE, HEIGHT, WIDTH, INFERENCE_STEPS, GUIDANCE_SCALE
+from .config import DEVICE, DTYPE, HEIGHT, WIDTH, INFERENCE_STEPS, GUIDANCE_SCALE
 
 
 #get sd 1.4
-def import_model(model_id, dtype=torch.float32, device=DEVICE):
+def import_model(model_id, dtype=DTYPE, device=DEVICE):
     pipe = StableDiffusionPipeline.from_pretrained(
         model_id, torch_dtype=dtype, safety_checker=None,
     ).to(device)
@@ -60,7 +60,7 @@ def generate(pipe, prompt="", guidance_scale=GUIDANCE_SCALE, inference_steps=INF
 
     generator = torch.Generator(device="cpu").manual_seed(seed)
     latents = torch.randn((1, pipe.unet.config.in_channels, height // 8, width // 8),
-                          generator=generator).to(pipe.device)
+                          generator=generator).to(pipe.device, dtype=pipe.unet.dtype)
 
     pipe.scheduler.set_timesteps(inference_steps)
     latents = latents * pipe.scheduler.init_noise_sigma
