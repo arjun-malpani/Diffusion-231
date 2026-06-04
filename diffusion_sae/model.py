@@ -50,7 +50,10 @@ def decode(pipe, lat):
 
 #generate from SD and prompt
 def generate(pipe, prompt="", guidance_scale=GUIDANCE_SCALE, inference_steps=INFERENCE_STEPS,
-             height=HEIGHT, width=WIDTH, seed=42):
+             height=HEIGHT, width=WIDTH, seed=42, decode_frames=True):
+    """Run SD's denoise loop. With decode_frames=False, skip every per-step VAE
+    decode (used for activation collection where we only need the UNet forwards
+    to fire hooks)."""
 
     #CLIP text embeddings for CFG: stack [uncond ; cond] along batch
     text_embeddings = torch.cat([embed(pipe, ""), embed(pipe, prompt)])
@@ -62,7 +65,7 @@ def generate(pipe, prompt="", guidance_scale=GUIDANCE_SCALE, inference_steps=INF
     pipe.scheduler.set_timesteps(inference_steps)
     latents = latents * pipe.scheduler.init_noise_sigma
 
-    frames = [("start (pure noise)", decode(pipe, latents))]
+    frames = [("start (pure noise)", decode(pipe, latents))] if decode_frames else None
 
     for i, t in enumerate(pipe.scheduler.timesteps):
         latent_model_input = pipe.scheduler.scale_model_input(torch.cat([latents] * 2), t)
@@ -72,9 +75,10 @@ def generate(pipe, prompt="", guidance_scale=GUIDANCE_SCALE, inference_steps=INF
         nu, nt = noise_pred.chunk(2)
         noise_pred = nu + guidance_scale * (nt - nu)              #CFG
         latents = pipe.scheduler.step(noise_pred, t, latents).prev_sample
-        frames.append((f"step {i+1}", decode(pipe, latents)))
+        if decode_frames:
+            frames.append((f"step {i+1}", decode(pipe, latents)))
 
-    return frames
+    return frames if decode_frames else latents
 
 #plot the frames of the output of the model 
 def plot_generate(frames, full_trajectory=False, show=True, save=True, path="denoising_out.png"):
