@@ -1,4 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Existing
 edm2/
 *.pkl
-edm2/
-*.pkl
+
+# Trained SAE artifacts (regeneratable, large)
+checkpoints/
+
+# Cached activation datasets (large; pulled / regenerated as needed)
+data/activations/
+
+# Local virtualenvs (if you ever make one here instead of using conda)
+.venv/
+venv/
