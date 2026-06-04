@@ -22,3 +22,12 @@ HEIGHT = 512
 WIDTH = 512
 INFERENCE_STEPS = 30 
 GUIDANCE_SCALE = 7.5
+
+#sae model
+NUM_LATENTS = 20480
+
+#training
+EPOCHS = 100
+AUX_ALPHA = 1/32 #how much do we weight dead activations
+LEARNING_RATE = 1e-4
+DEAD_THRESHOLD = 10000000 #from anthropic, check more
