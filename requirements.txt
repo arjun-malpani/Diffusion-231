@@ -52,6 +52,9 @@ matplotlib==3.10.9
 # --- eval scripts: CLIP-based style and content scoring ---
 open_clip_torch>=2.20.0
 torchvision>=0.15.0
+# timm: the UnlearnCanvas ViT-Large style classifier (vit_large_patch16_224.augreg_in21k)
+# used by eval_style.py and scripts/run_style_eval.py for the uc_style metric (style50.pth).
+timm>=0.9.0
 
 # --- optional: only needed to RUN SAeUron's CLI scripts, not the notebook/run_style_steering.py ---
 # fire==0.7.0      # gather_sae_acts_ca_prompts.py, train.py, etc. (fire.Fire CLIs)

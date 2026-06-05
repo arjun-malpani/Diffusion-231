@@ -118,8 +118,8 @@ def save_demo_figure(image_dir, images, labels, scores):
         ax.axis("off")
     for ax, img, label, score in zip(axes, images, labels, scores):
         ax.imshow(img)
-        ax.set_title(f"{label}\nContent sim: {score:.3f}", fontsize=9)
-    fig.suptitle("Content Preservation: Prompt vs SAE Steering", fontsize=12, y=1.02)
+        ax.set_title(f"{label}\nContent preservation (CLIP): {score:.3f}", fontsize=9)
+    fig.suptitle("Content Preservation (CLIP): Prompt vs SAE Steering", fontsize=12, y=1.02)
     plt.tight_layout()
     path = os.path.join(image_dir, "content_eval_demo.png")
     plt.savefig(path, dpi=110, bbox_inches="tight")

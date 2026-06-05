@@ -22,3 +22,9 @@ data/activations/
 # Local virtualenvs (if you ever make one here instead of using conda)
 .venv/
 venv/
+
+# External UnlearnCanvas clone (large, has its own .git) -- reference only
+UnlearnCanvas/
+
+# Generated eval outputs (images / figures / score caches; regeneratable)
+results/
