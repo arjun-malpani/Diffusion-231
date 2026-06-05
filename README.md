@@ -34,6 +34,8 @@ Run in order, ~few hours on GPU
   `scores.csv` + figures to `results/style_eval/`.
   - quick check: add `--scope smoke` (1 prompt/style) or `--scope limited-prompts` (5/style)
   - single example: `python scripts/run_single.py --prompt "a cat" --style Van_Gogh`
+  - the `uc_style` metric needs the UnlearnCanvas classifier (`style50.pth`, 3.6GB). download it to `checkpoints/unlearncanvas_classifier/`:
+    `gdown 1Ax962R07xq2PUmT07kTiDxKLQ36KV8Tn -O checkpoints/unlearncanvas_classifier/style50.pth`
 
 ## Notes
 
