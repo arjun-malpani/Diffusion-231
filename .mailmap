@@ -1,0 +1,5 @@
+# Consolidate Arjun Malpani's commit identities under his GitHub email.
+Arjun Malpani <arjmalpani@gmail.com> <ajmlpni@gmail.com>
+Arjun Malpani <arjmalpani@gmail.com> <ec2-user@ip-172-31-20-83.us-west-2.compute.internal>
+# Fold the AI co-author credit into the author so it is not counted as a separate contributor.
+Arjun Malpani <arjmalpani@gmail.com> <noreply@anthropic.com>
