@@ -31,12 +31,12 @@ for p in (HERE, REPO):
         sys.path.insert(0, p)
 
 from diffusion_sae.config import STYLES
-from style_eval_lib import (
+from eval.style_eval_lib import (
     Generator, Scorer, build_conditions, run_pipeline,
     detect_device, log, DEFAULT_WEIGHTS, DEFAULT_METHODS, DEFAULT_SEED,
     DEFAULT_UC_CKPT, DEFAULT_UC_REPO,
 )
-from style_eval_figures import make_figures, ALL_FIGURES
+from eval.style_eval_figures import make_figures, ALL_FIGURES
 
 
 def slug(text, n=40):

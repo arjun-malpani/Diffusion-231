@@ -213,7 +213,7 @@ class Scorer:
         try:
             import timm
             import torchvision.transforms as T
-            from eval_style import load_theme_available     # single source of truth for the 51 labels
+            from eval.eval_style import load_theme_available     # single source of truth for the 51 labels
 
             theme = load_theme_available(uc_repo)
             model = timm.create_model("vit_large_patch16_224.augreg_in21k", pretrained=False)

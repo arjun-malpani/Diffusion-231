@@ -28,3 +28,4 @@ UnlearnCanvas/
 
 # Generated eval outputs (images / figures / score caches; regeneratable)
 results/
+logs/

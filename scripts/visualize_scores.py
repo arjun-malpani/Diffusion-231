@@ -44,8 +44,8 @@ for p in (HERE, REPO):
     if p not in sys.path:
         sys.path.insert(0, p)
 
-from style_eval_lib import load_scores, log, DEFAULT_RESULTS
-from style_eval_figures import mean_ci
+from eval.style_eval_lib import load_scores, log, DEFAULT_RESULTS
+from eval.style_eval_figures import mean_ci
 try:
     from diffusion_sae.config import STYLES as CONFIG_STYLES
 except Exception:

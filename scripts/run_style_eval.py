@@ -46,12 +46,12 @@ for p in (HERE, REPO):
         sys.path.insert(0, p)
 
 from diffusion_sae.config import STYLES, INFERENCE_DIR
-from style_eval_lib import (
+from eval.style_eval_lib import (
     Generator, Scorer, build_conditions, read_prompts, run_pipeline, load_scores,
     detect_device, log, DEFAULT_WEIGHTS, DEFAULT_METHODS, DEFAULT_SEED,
     DEFAULT_UC_CKPT, DEFAULT_UC_REPO, DEFAULT_RESULTS,
 )
-from style_eval_figures import make_figures, ALL_FIGURES
+from eval.style_eval_figures import make_figures, ALL_FIGURES
 
 SCOPE_LIMIT = {"all-prompts": None, "limited-prompts": 5, "smoke": 1}
 

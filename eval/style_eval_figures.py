@@ -32,9 +32,10 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-if HERE not in sys.path:
-    sys.path.insert(0, HERE)
-from style_eval_lib import METRICS, METRIC_LABELS, METHOD_LABEL, style_display
+REPO = os.path.dirname(HERE)
+if REPO not in sys.path:
+    sys.path.insert(0, REPO)
+from eval.style_eval_lib import METRICS, METRIC_LABELS, METHOD_LABEL, style_display
 
 # CLI tokens, in render order
 ALL_FIGURES = ["grid", "lines", "tradeoff", "per_style", "bars"]
