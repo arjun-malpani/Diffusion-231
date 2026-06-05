@@ -1,0 +1,19 @@
+/opt/pytorch/lib64/python3.13/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-06-04 23:23:14.490353122 [W:onnxruntime:Default, device_discovery.cc:283 GetGpuDevices] Failed to detect devices under "/sys/class/drm/card0": device_discovery.cc:93 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00, 16.44it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:00<00:00, 11.04it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  4.76it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  5.72it/s]
+You have disabled the safety checker for <class 'diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion.StableDiffusionPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+20 anchors | 10 styles | percentile=99.9
+[ 1/10] Van_Gogh        selected   21 feats | top idx [19577, 7437, 19190] | top mu [11.5742, 1.4233, 1.3269] | elapsed 1.1 min
+[ 2/10] Picasso         selected   21 feats | top idx [15235, 4575, 12575] | top mu [3.1572, 3.1345, 1.8419] | elapsed 2.2 min
+[ 3/10] Monet           selected   21 feats | top idx [7852, 12575, 7499] | top mu [10.9256, 1.3253, 1.1936] | elapsed 3.4 min
+[ 4/10] Cubism          selected   21 feats | top idx [8751, 15295, 12575] | top mu [3.2753, 1.3291, 1.1806] | elapsed 4.5 min
+[ 5/10] Watercolor      selected   21 feats | top idx [13595, 8114, 10931] | top mu [3.4376, 3.3847, 2.4304] | elapsed 5.6 min
+[ 6/10] Pop_Art         selected   21 feats | top idx [15497, 217, 1725] | top mu [1.726, 1.5806, 2.1825] | elapsed 6.7 min
+[ 7/10] Cartoon         selected   21 feats | top idx [11621, 1725, 217] | top mu [1.7182, 1.8169, 0.7707] | elapsed 7.8 min
+[ 8/10] Ukiyoe          selected   21 feats | top idx [5385, 3040, 11621] | top mu [10.1259, 1.6713, 1.4471] | elapsed 8.9 min
+[ 9/10] Pencil_Drawing  selected   21 feats | top idx [19632, 1867, 10876] | top mu [9.1505, 1.1215, 0.6943] | elapsed 10.1 min
+[10/10] Impressionism   selected   21 feats | top idx [3596, 8614, 1867] | top mu [3.9924, 1.3642, 0.9012] | elapsed 11.2 min
+
+saved /home/ec2-user/Diffusion-231/steering/features.pt
+saved /home/ec2-user/Diffusion-231/steering/features.json

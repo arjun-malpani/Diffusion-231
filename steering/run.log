@@ -1,0 +1,26 @@
+/opt/pytorch/lib64/python3.13/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][0;93m2026-06-04 23:51:39.924893058 [W:onnxruntime:Default, device_discovery.cc:283 GetGpuDevices] Failed to detect devices under "/sys/class/drm/card0": device_discovery.cc:93 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00, 15.83it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:00<00:00,  3.77it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  5.78it/s]
+You have disabled the safety checker for <class 'diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion.StableDiffusionPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+  [  20/360] A/uniform/Cartoon/a_cat s=1.0 | 0.51 img/s | eta ~11 min
+  [  40/360] A/patch/Cubism/a_cat s=0.5 | 0.52 img/s | eta ~10 min
+  [  60/360] A/patch/Impressionism/a_cat s=2.0 | 0.53 img/s | eta ~9 min
+  [  80/360] A/uniform/Cartoon/a_house s=1.0 | 0.53 img/s | eta ~9 min
+  [ 100/360] A/patch/Cubism/a_house s=0.5 | 0.53 img/s | eta ~8 min
+  [ 120/360] A/patch/Impressionism/a_house s=2.0 | 0.53 img/s | eta ~8 min
+  [ 140/360] B/uniform/Cartoon/a_cat s=1.0 | 0.53 img/s | eta ~7 min
+  [ 160/360] B/patch/Cubism/a_cat s=0.5 | 0.53 img/s | eta ~6 min
+  [ 180/360] B/patch/Impressionism/a_cat s=2.0 | 0.53 img/s | eta ~6 min
+  [ 200/360] B/uniform/Cartoon/a_house s=1.0 | 0.53 img/s | eta ~5 min
+  [ 220/360] B/patch/Cubism/a_house s=0.5 | 0.53 img/s | eta ~4 min
+  [ 240/360] B/patch/Impressionism/a_house s=2.0 | 0.53 img/s | eta ~4 min
+  [ 260/360] C/uniform/Cartoon/a_cat s=1.0 | 0.53 img/s | eta ~3 min
+  [ 280/360] C/patch/Cubism/a_cat s=0.5 | 0.53 img/s | eta ~2 min
+  [ 300/360] C/patch/Impressionism/a_cat s=2.0 | 0.54 img/s | eta ~2 min
+  [ 320/360] C/uniform/Cartoon/a_house s=1.0 | 0.53 img/s | eta ~1 min
+  [ 340/360] C/patch/Cubism/a_house s=0.5 | 0.54 img/s | eta ~1 min
+  [ 360/360] C/patch/Impressionism/a_house s=2.0 | 0.54 img/s | eta ~0 min
+
+done: 360 steered + baselines in 11.2 min
+images under /home/ec2-user/Diffusion-231/steering/output/  -> now run: python steering/visualize.py

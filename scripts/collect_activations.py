@@ -29,26 +29,16 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import torch
 
 from diffusion_sae.model  import import_model, get_activation
-from diffusion_sae.config import MODEL_ID
+from diffusion_sae.config import MODEL_ID, STYLES, SEED, ANCHOR_FILE   # single source of truth
 from diffusion_sae.data   import ActivationShardDataset
+from config import OUT_DIR                                             # run-specific output dir (scripts/config.py)
 
 
 # ============================ CONFIG ============================
 STYLE_HOOKPOINT = "unet.up_blocks.1.attentions.2"        # up.1.2 -> 1280-ch / 16x16
 
-# 10 styles deliberately spread for visual distinctness
-STYLES = [
-    "Van_Gogh",   "Picasso",         "Monet",     "Cubism",       "Watercolor",
-    "Pop_Art",    "Cartoon",         "Ukiyoe",    "Pencil_Drawing","Impressionism",
-]
-
 ANCHORS_PER_STYLE  = 400              # 400 * 10 = 4000 prompts total
 PROMPTS_PER_SHARD  = 100              # -> ~40 shards on the real run, ~2 GB each fp16
-
-ANCHOR_FILE = "data/prompts/anchor_prompts_all.txt"
-OUT_DIR     = "data/activations/style_v1"
-
-SEED = 0
 
 # ---- smoke test (~2 min, 2 generations on Mac MPS, verifies the whole pipeline)
 SMOKE_TEST = False                    # FLIP TO True for a 2-prompt local smoke test

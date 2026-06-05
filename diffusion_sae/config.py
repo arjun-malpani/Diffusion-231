@@ -12,10 +12,24 @@ DEVICE, DTYPE = _pick_device_dtype()
 
 MODEL_ID = "CompVis/stable-diffusion-v1-4"
 
-#paths 
+#paths
 ACT_CACHE_DIR = "data/activations"
 SAE_CKPT_DIR  = "checkpoints"
 OUTPUT_DIR    = "output_img"
+
+#styles for the style-SAE experiment -- SINGLE SOURCE OF TRUTH (scripts re-export this)
+STYLES = [
+    "Van_Gogh",   "Picasso",  "Monet",    "Cubism",         "Watercolor",
+    "Pop_Art",    "Cartoon",  "Ukiyoe",   "Pencil_Drawing", "Impressionism",
+]
+SEED = 0
+
+#prompt files / folders
+PROMPT_DIR      = "data/prompts"
+ANCHOR_FILE     = "data/prompts/anchor_prompts_all.txt"
+BY_CLASS_DIR    = "data/prompts/by_class"
+FEATURE_ACT_DIR = "data/prompts/feature_activation"   # styled prompts, one file per style (feature ID)
+INFERENCE_DIR   = "data/prompts/inference"            # neutral prompts, one file per style (steering)
 
 #generate params
 HEIGHT = 512

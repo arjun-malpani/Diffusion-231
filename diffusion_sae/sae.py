@@ -52,6 +52,26 @@ class SAE(nn.Module):
         recon = z @ self.W_dec + self.b_dec
         return recon, z, hidden          # hidden = post-ReLU pre-topk acts, reused by AuxK
 
+    @torch.no_grad()
+    def encode(self, x, k=32):
+        """x [..., d_in] -> sparse latent acts [..., num_latents] (deterministic per-row top-k).
+
+        Centers by b_dec (as in forward), ReLU, then keeps each row's top-k. Use this for
+        feature analysis -- it is independent of batch composition (unlike training BatchTopK).
+        Flattens leading dims, so [N, d_in] or [steps, HW, d_in] both work.
+        """
+        lead, d = x.shape[:-1], x.shape[-1]
+        flat = x.reshape(-1, d).to(self.b_dec.device)
+        hidden = F.relu(self.encoder(flat - self.b_dec))
+        topk = torch.topk(hidden, k, dim=-1)
+        z = torch.zeros_like(hidden).scatter_(-1, topk.indices, topk.values)
+        return z.reshape(*lead, self.num_latents)
+
+    def direction(self, idx):
+        """Unit-norm decoder direction(s) for latent index/indices `idx` -> [d_in] or [len(idx), d_in].
+        W_dec rows are already unit-norm (normalize_decoder), so these are the raw style directions."""
+        return self.W_dec[idx]
+
         
 
 

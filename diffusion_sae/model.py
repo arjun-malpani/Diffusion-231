@@ -1,12 +1,8 @@
 '''
 
-
-
 load_pipeline: imports diffusion pipeline
 
 generate: generates image given model 
-
-get_block: returns the nn.module of a block
 
 '''
 
