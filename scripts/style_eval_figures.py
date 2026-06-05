@@ -38,7 +38,7 @@ from style_eval_lib import METRICS, METRIC_LABELS, METHOD_LABEL, style_display
 
 # CLI tokens, in render order
 ALL_FIGURES = ["grid", "lines", "tradeoff", "per_style", "bars"]
-METHOD_COLOR = {"uniform": "#1f77b4", "patch": "#ff7f0e"}
+METHOD_COLOR = {"uniform": "#1f77b4", "patch_selective": "#ff7f0e"}
 
 
 # ----------------------------- helpers ------------------------------ #
@@ -62,7 +62,7 @@ def sae_weights(rows):
 
 
 def sae_methods(rows):
-    return [m for m in ("uniform", "patch") if any(r["kind"] == "sae" and r["method"] == m for r in rows)]
+    return [m for m in ("uniform", "patch_selective") if any(r["kind"] == "sae" and r["method"] == m for r in rows)]
 
 
 def condition_order(rows):

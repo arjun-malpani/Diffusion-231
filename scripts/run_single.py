@@ -14,7 +14,7 @@ Examples
 --------
   python scripts/run_single.py --prompt "a cat" --style Van_Gogh
   python scripts/run_single.py --prompt "a house on a hill" --style Monet \\
-      --weights 0.5 1 2 --methods uniform patch --figures F4 F5
+      --weights 0.5 1 2 --methods uniform patch_selective --figures F4 F5
   python scripts/run_single.py --prompt "a bear" --style Cubism --methods uniform
 =============================================================
 """
@@ -49,13 +49,13 @@ def parse_args():
     p.add_argument("--prompt", required=True, help="the (neutral) prompt to steer")
     p.add_argument("--style", required=True, help=f"style to inject (e.g. {', '.join(STYLES[:4])}, ...)")
     p.add_argument("--weights", nargs="+", type=float, default=DEFAULT_WEIGHTS)
-    p.add_argument("--methods", nargs="+", choices=["uniform", "patch"], default=DEFAULT_METHODS)
+    p.add_argument("--methods", nargs="+", choices=["uniform", "patch_selective"], default=DEFAULT_METHODS)
     p.add_argument("--skip-prompted", action="store_true",
                    help="do not generate the '<prompt> in <style> style.' reference")
     p.add_argument("--figures", nargs="+", default=["all"], choices=ALL_FIGURES + ["all"],
                    help="figures to render (subset of: grid, lines, tradeoff, per_style, bars)")
-    p.add_argument("--save-images", action="store_true",
-                   help="also persist each condition image (default: produce the grid only)")
+    p.add_argument("--no-save-images", dest="save_images", action="store_false",
+                   help="do NOT persist per-condition images (default: all images saved)")
     p.add_argument("--seed", type=int, default=DEFAULT_SEED)
     p.add_argument("--results-dir", default=None, help="default: results/single/<style>_<slug>")
     p.add_argument("--uc-checkpoint", default=DEFAULT_UC_CKPT)

@@ -11,12 +11,12 @@ Conditions (see build_conditions):
   unstyled  : generate(prompt)                          -- the "original image"
                                                           (weight 0 anchor / content ref)
   prompted  : generate(f"{prompt} in {style} style.")   -- text-conditioned style reference
-  injected  : SAE 'uniform' injection (one vector / patch)  at weight w   (steering.steer)
-  entangled : SAE 'patch'   injection (one embedding / patch) at weight w
+  injected  : SAE 'uniform'         injection (one vector / patch)       at weight w   (steering.steer)
+  entangled : SAE 'patch_selective' injection (per-patch feature set)    at weight w
 
   -> "injected" vs "entangled" vs "unstyled" is exactly the grid the user asked for;
-     'uniform' adds the same style vector to every patch, 'patch' uses the styled
-     16x16 spatial maps (see steering/steer.py:compute_delta).
+     'uniform' adds the same style vector to every patch, 'patch_selective' picks a
+     different top-K feature set per patch (see steering/steer.py:compute_delta).
 
 Scores (see Scorer.score_images):
   prompt_clip   : CLIP cos(image, original prompt text)      -- prompt fidelity
@@ -53,12 +53,12 @@ if REPO not in sys.path:
 
 # ----------------------------- defaults ----------------------------- #
 DEFAULT_WEIGHTS    = [1.0, 2.0]
-DEFAULT_METHODS    = ["uniform", "patch"]
+DEFAULT_METHODS    = ["uniform", "patch_selective"]
 DEFAULT_SEED       = 42                       # matches the activation-collection / training seed
 DEFAULT_UC_CKPT    = os.path.join(REPO, "checkpoints/unlearncanvas_classifier/style50.pth")
 DEFAULT_UC_REPO    = os.path.join(REPO, "UnlearnCanvas/diffusion_model_finetuning")
 DEFAULT_RESULTS    = os.path.join(REPO, "results/style_eval")
-METHOD_LABEL       = {"uniform": "injected_normal", "patch": "injected_patches"}   # display names
+METHOD_LABEL       = {"uniform": "injected_normal", "patch_selective": "injected_patches"}   # display names
 
 METRICS = ["prompt_clip", "style_clip", "uc_style", "content_clip"]
 METRIC_LABELS = {
@@ -109,7 +109,7 @@ def style_clip_text(style: str) -> str:
 class Condition:
     name: str                 # e.g. "unstyled", "prompted", "injected_w1", "entangled_w2"
     kind: str                 # "unstyled" | "prompted" | "sae"
-    method: Optional[str]     # "uniform" | "patch" | None
+    method: Optional[str]     # "uniform" | "patch_selective" | None
     weight: float             # 0.0 for unstyled/prompted
 
 

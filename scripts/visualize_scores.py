@@ -10,7 +10,7 @@ Conditions are grouped into 4 colored CATEGORIES:
   unstyled          -> gold     (the prompt as-is)
   prompted          -> red      ("<prompt> in <style> style.")
   perturbed-normal  -> green    (SAE 'uniform' injection -- one vector per patch)
-  perturbed-patch   -> blue     (SAE 'patch'   injection -- one embedding per patch)
+  perturbed-patch   -> blue     (SAE 'patch_selective' injection -- per-patch feature set)
 (perturbed categories aggregate over all steering weights unless --by-weight.)
 
 Figures (choose with --figures, default all):
@@ -65,7 +65,7 @@ def category(r):
         return "prompted"
     if r["method"] == "uniform":
         return "perturbed-normal"
-    if r["method"] == "patch":
+    if r["method"] == "patch_selective":
         return "perturbed-patch"
     return None
 

@@ -10,7 +10,7 @@ file, generate at a fixed seed (default 42):
   unstyled  : the prompt as-is
   prompted  : "<prompt> in <style> style."        (text-conditioned reference)
   injected  : SAE 'uniform' injection  @ each weight   (one vector per patch)
-  entangled : SAE 'patch'   injection  @ each weight   (one embedding per patch)
+  entangled : SAE 'patch_selective' injection  @ each weight   (per-patch feature set)
 
 Score each image with 4 metrics (prompt_clip, style_clip, uc_style, content_clip),
 write results/<...>/scores.csv, and render the requested figures (F1-F5).
@@ -66,16 +66,16 @@ def parse_args():
     p.add_argument("--limit", type=int, default=None, help="override prompts/style count")
     p.add_argument("--weights", nargs="+", type=float, default=DEFAULT_WEIGHTS,
                    help="SAE steering weightages (the hyperparam perturbing SAE activations)")
-    p.add_argument("--methods", nargs="+", choices=["uniform", "patch"], default=DEFAULT_METHODS,
-                   help="uniform=one vector/patch (injected), patch=one embedding/patch (entangled)")
+    p.add_argument("--methods", nargs="+", choices=["uniform", "patch_selective"], default=DEFAULT_METHODS,
+                   help="uniform=one vector/patch (injected), patch_selective=per-patch feature set (entangled)")
     p.add_argument("--skip-prompted", action="store_true",
                    help="do not generate the '<prompt> in <style> style.' reference image")
     p.add_argument("--figures", nargs="+", default=["all"], choices=ALL_FIGURES + ["all"],
                    help="figures to render (subset of: grid, lines, tradeoff, per_style, bars)")
     p.add_argument("--grid-prompts", type=int, default=6,
                    help="max prompts per style shown in the F1 grid")
-    p.add_argument("--save-images", action="store_true",
-                   help="also persist each condition image to results/images/ (default: grid only)")
+    p.add_argument("--no-save-images", dest="save_images", action="store_false",
+                   help="do NOT persist per-condition images (default: ALL images saved to results/images/)")
     p.add_argument("--seed", type=int, default=DEFAULT_SEED, help="generation seed (42 = training seed)")
     p.add_argument("--inference-dir", default=os.path.join(REPO, INFERENCE_DIR))
     p.add_argument("--results-dir", default=DEFAULT_RESULTS)
