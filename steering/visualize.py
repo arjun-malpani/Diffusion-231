@@ -21,7 +21,7 @@ from steering.common import OUT_DIR, DEMO_PROMPTS, STRENGTHS
 SUBGROUPS = {"A": "A: training seed 42 (shared)",
              "B": "B: random, decoupled noise",
              "C": "C: new seed 1234 (shared)"}
-METHODS = ["uniform", "patch"]
+METHODS = ["uniform", "patch_selective"]
 
 
 def slug(p): return p.replace(" ", "_")

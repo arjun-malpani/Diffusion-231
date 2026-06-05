@@ -26,12 +26,10 @@ from steering.common import (load_sae, OUT_DIR, FEATURES_PT, DEMO_PROMPTS, STREN
                              TRAIN_SEED, NEW_SEED, B_META_SEED)
 from steering.steer  import set_pipe, generate_baseline, generate_steered
 
-METHODS = ["uniform", "patch"]
-
+METHODS = ["uniform", "patch_selective"]
 
 def slug(p):
     return p.replace(" ", "_")
-
 
 def main():
     device = "cuda" if torch.cuda.is_available() else "cpu"

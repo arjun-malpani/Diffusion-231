@@ -16,17 +16,17 @@ from diffusion_sae.sae    import SAE
 from diffusion_sae.config import DEVICE, DTYPE
 
 
-# ============================ CONFIG ============================
-HOOKPOINT   = "unet.up_blocks.1.attentions.2"   # up.1.2 -- the block the SAE was trained on
+#CONFIG STUFF
+HOOKPOINT   = "unet.up_blocks.1.attentions.2"  
 D_IN        = 1280
-HW          = 16                                 # 16x16 = 256 spatial patches at this block
+HW          = 16                                 # 16x16, 256 spatial patches at up_blocks.1.attentions2
 SAE_CKPT    = os.path.join(REPO, "checkpoints/sae_v1/sae_final.pt")
 
 # feature selection (neutral-vs-styled "what the style adds")
 PERCENTILE  = 99.9                               # keep features above this pct of the (styled-neutral) score
 
 # steering
-STRENGTHS   = [0.5, 1.0, 2.0]                    # multipliers x each feature's styled mean level (mu)
+STRENGTHS   = [0.5, 1.0, 2.0]                    # multipliers x each feature
 COND_ONLY   = True                               # inject into the conditional CFG half only (the sweet spot)
 
 # steering demo: 2 NEUTRAL prompts, shared across all styles so the grid compares cleanly

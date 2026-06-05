@@ -1,14 +1,14 @@
 """
 Inject SAE style directions into SD generation at up.1.2.
 
-Two methods, both built from a style's selected features {idx, mu, maps}:
-  uniform : add the SAME vector to every patch  -- delta[:,i,j] = strength * Sum_f mu[f]  * W_dec[f]
-  patch   : per-patch via styled spatial maps   -- delta[:,i,j] = strength * Sum_f map[f,i,j]* W_dec[f]
+Two methods:
+  uniform         : GLOBAL feature set, SAME vector at every patch
+                    delta[:,i,j] = strength * Sum_f mu[f] * W_dec[idx[f]]
+  patch_selective : a DIFFERENT feature SET chosen per patch (top-K style-adding feats at each patch)
+                    delta[:,i,j] = strength * Sum_k patch_level[p,k] * W_dec[patch_idx[p,k]]   (p = i*16+j)
 
-Note mu[f] == map[f].mean(patches), so 'uniform' is exactly the spatially-flattened 'patch' --
-both inject the same TOTAL style; they differ only in spatial distribution. W_dec rows are unit-norm,
-and mu is the feature's styled activation level, so strength=1.0 injects the feature at ~the level the
-real style produces (Eq.7-style calibration). Injection is on the conditional CFG half only, every step.
+W_dec rows are unit-norm and the levels (mu / patch_level) are styled activation levels, so strength=1.0
+injects features at ~the level the real style produces. Injection is on the conditional CFG half only, every step.
 
 Purely functional: compute_delta -> make_injection_hook -> style_injection (register/remove).
 """
@@ -21,22 +21,30 @@ import torch
 from PIL import Image
 
 from diffusion_sae.model import generate, get_block
-from steering.common    import HOOKPOINT, COND_ONLY
+from steering.common    import HOOKPOINT, COND_ONLY, HW
+
 
 
 def compute_delta(sae, feat, strength, method):
-    """Build the additive style delta [d_in, 16, 16] for one style's features at a given strength."""
-    dev  = sae.W_dec.device
-    W    = sae.W_dec[feat["idx"].to(dev)].detach().float()    # [F, d_in] unit-norm directions
-    maps = feat["maps"].to(dev).float()                       # [F, 16, 16] styled per-patch level
-    if method == "uniform":
-        level = maps.mean(dim=(1, 2), keepdim=True).expand_as(maps)   # flat per-feature level (== mu)
-    elif method == "patch":
-        level = maps                                          # per-patch level
-    else:
-        raise ValueError(f"method must be 'uniform' or 'patch', got {method!r}")
+    """Build the additive style delta [d_in, 16, 16] for one style at a given strength."""
+    dev = sae.W_dec.device
     with torch.no_grad():
-        return strength * torch.einsum("fc,fij->cij", W, level)       # delta[c,i,j]=sum_f level[f,i,j]*W[f,c]
+        if method == "uniform":
+            # global feature set, identical vector at every patch: sum_f mu[f] * W_dec[idx[f]]
+            W   = sae.W_dec[feat["idx"].to(dev)].float()              # [F, d_in] unit-norm directions
+            mu  = feat["mu"].to(dev).float()                          # [F] styled levels
+            vec = torch.einsum("f,fc->c", mu, W)                      # [d_in]
+            delta = vec[:, None, None].expand(-1, HW, HW)             # broadcast flat -> [d_in,16,16]
+        elif method == "patch_selective":
+            # per-patch feature set: at patch p add sum_k level[p,k] * W_dec[idx[p,k]]
+            pidx = feat["patch_idx"].to(dev)                          # [P, K] feature ids per patch
+            plvl = feat["patch_level"].to(dev).float()               # [P, K] level     per patch
+            dirs = sae.W_dec[pidx].float()                           # [P, K, d_in]
+            perp = (plvl.unsqueeze(-1) * dirs).sum(dim=1)            # [P, d_in]
+            delta = perp.reshape(HW, HW, -1).permute(2, 0, 1)        # [d_in,16,16]  (p = i*16+j)
+        else:
+            raise ValueError(f"method must be 'uniform' or 'patch_selective', got {method!r}")
+        return strength * delta
 
 
 def make_injection_hook(delta, cond_only=COND_ONLY):

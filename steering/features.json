@@ -21,7 +21,9 @@
       1.3269,
       0.9306,
       0.8146
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 603
   },
   "Picasso": {
     "n_selected": 21,
@@ -45,7 +47,9 @@
       1.8419,
       1.1915,
       1.2804
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 572
   },
   "Monet": {
     "n_selected": 21,
@@ -69,7 +73,9 @@
       1.1936,
       1.1528,
       0.9335
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 558
   },
   "Cubism": {
     "n_selected": 21,
@@ -93,7 +99,9 @@
       1.1806,
       0.9702,
       1.597
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 530
   },
   "Watercolor": {
     "n_selected": 21,
@@ -117,7 +125,9 @@
       2.4304,
       1.4254,
       0.8452
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 510
   },
   "Pop_Art": {
     "n_selected": 21,
@@ -141,7 +151,9 @@
       2.1825,
       1.1724,
       1.0174
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 554
   },
   "Cartoon": {
     "n_selected": 21,
@@ -165,7 +177,9 @@
       0.7707,
       0.7149,
       0.5949
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 582
   },
   "Ukiyoe": {
     "n_selected": 21,
@@ -178,7 +192,7 @@
     ],
     "top_score": [
       10.1255,
-      1.6657,
+      1.6658,
       1.4267,
       0.7318,
       0.7071
@@ -189,7 +203,9 @@
       1.4471,
       0.7609,
       0.9409
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 530
   },
   "Pencil_Drawing": {
     "n_selected": 21,
@@ -213,7 +229,9 @@
       0.6943,
       0.6317,
       0.7032
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 712
   },
   "Impressionism": {
     "n_selected": 21,
@@ -237,6 +255,8 @@
       0.9012,
       0.7698,
       0.696
-    ]
+    ],
+    "patch_topk": 16,
+    "distinct_feats_across_patches": 690
   }
 }
