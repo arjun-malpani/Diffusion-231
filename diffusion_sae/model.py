@@ -47,10 +47,6 @@ def decode(pipe, lat):
 #generate from SD and prompt
 def generate(pipe, prompt="", guidance_scale=GUIDANCE_SCALE, inference_steps=INFERENCE_STEPS,
              height=HEIGHT, width=WIDTH, seed=42, decode_frames=True):
-    """Run SD's denoise loop. With decode_frames=False, skip every per-step VAE
-    decode (used for activation collection where we only need the UNet forwards
-    to fire hooks)."""
-
     #CLIP text embeddings for CFG: stack [uncond ; cond] along batch
     text_embeddings = torch.cat([embed(pipe, ""), embed(pipe, prompt)])
 
@@ -135,9 +131,9 @@ def get_activation(pipe, hookpoints: list[str], prompt, **generate_kwargs):
         handles.append(block.register_forward_hook(make_hook(hp)))
 
     try:
-        generate(pipe, prompt, **generate_kwargs)   #fwd to trigger hooks
+        generate(pipe, prompt, **generate_kwargs)   
     finally:
-        for h in handles:                            #always clean up, even on error
+        for h in handles:                            
             h.remove()
 
     return activations
