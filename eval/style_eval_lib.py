@@ -354,7 +354,8 @@ def existing_keys(csv_path):
 
 # --------------------------- orchestration -------------------------- #
 def run_pipeline(prompts_by_style, conditions, scorer, results_dir,
-                 generator=None, seed=DEFAULT_SEED, skip_existing=True, save_images=False):
+                 generator=None, seed=DEFAULT_SEED, skip_existing=True, save_images=False,
+                 write_csv=False):
     """Generate (or reuse) all condition images per prompt, score them, write scores.csv.
 
     prompts_by_style : {style: [prompt, ...]}
@@ -364,6 +365,9 @@ def run_pipeline(prompts_by_style, conditions, scorer, results_dir,
                        Default False -- images are kept in memory only long enough to score and
                        compose the grid figure (the grid is the deliverable, not the loose files).
                        Saving also enables resume (skip_existing) and re-plotting via --figures-only.
+    write_csv        : if True, merge this run's rows into results_dir/scores.csv. Default False --
+                       score in-memory only without touching the scores.csv cache (run_style_eval
+                       passes write_csv=True for its accumulating sweep cache).
 
     Returns (rows, csv_path, images) where images[(style, prompt_id, condition_name)] = PIL.Image
     for every image generated/loaded this run (used to build the grid without round-tripping disk).
@@ -409,8 +413,10 @@ def run_pipeline(prompts_by_style, conditions, scorer, results_dir,
                     "img_path": ipath,
                 })
 
-        merge_scores(csv_path, rows)                        # accumulating cache, flushed per style
-        log(f"  cached {len(rows)} rows this run -> {csv_path}")
+        if write_csv:
+            merge_scores(csv_path, rows)                    # accumulating cache, flushed per style
+            log(f"  cached {len(rows)} rows this run -> {csv_path}")
 
-    log(f"pipeline done: {len(rows)} rows for {n_styles} styles -> {csv_path}")
+    dest = csv_path if write_csv else "(in-memory only, write_csv=False)"
+    log(f"pipeline done: {len(rows)} rows for {n_styles} styles -> {dest}")
     return rows, csv_path, images
