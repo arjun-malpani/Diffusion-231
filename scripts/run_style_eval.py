@@ -148,7 +148,7 @@ def main():
     rows, csv_path, images = run_pipeline(prompts_by_style, conditions, scorer, args.results_dir,
                                           generator=generator, seed=args.seed,
                                           skip_existing=args.skip_existing,
-                                          save_images=args.save_images)
+                                          save_images=args.save_images, write_csv=True)
 
     # ── figures ──────────────────────────────────────────────────────── #
     if not args.no_figures:

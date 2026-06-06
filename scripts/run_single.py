@@ -65,6 +65,8 @@ def parse_args():
     p.add_argument("--grid-prompts", type=int, default=1, help="max prompts in the F1 grid")
     p.add_argument("--no-figures", action="store_true")
     p.add_argument("--no-skip-existing", dest="skip_existing", action="store_false")
+    p.add_argument("--save-scores", action="store_true",
+                   help="write/merge results into scores.csv (default: do NOT touch scores.csv)")
     return p.parse_args()
 
 
@@ -77,6 +79,31 @@ def print_table(rows):
         print(f"{r['condition']:<16}{f(r['prompt_clip']):>12}{f(r['style_clip']):>12}"
               f"{f(r['uc_style']):>10}{f(r['content_clip']):>14}")
     print()
+
+
+# Functionalized version of single-injection prompt
+def steer_single(prompt, style, method="uniform", strength=1.5, seed=DEFAULT_SEED,
+                 device=None, out_path=None):
+    import torch
+    from diffusion_sae.model import import_model
+    from diffusion_sae.config import MODEL_ID
+    from steering.common import load_sae, FEATURES_PT
+    from steering.steer import set_pipe, generate_steered
+
+    dev = detect_device(device)
+    dtype = torch.float16 if dev == "cuda" else torch.float32
+    pipe = import_model(MODEL_ID, dtype=dtype, device=dev)
+    pipe.set_progress_bar_config(disable=True)
+    set_pipe(pipe)                                   # fp32 VAE -> avoids fp16 NaNs
+    sae = load_sae(dev)
+    feats = torch.load(FEATURES_PT, map_location=dev, weights_only=False)
+    if style not in feats:
+        raise KeyError(f"no SAE features for style {style!r}; have {list(feats)}")
+    img = generate_steered(pipe, sae, prompt, feats[style], method, strength, seed)
+    if out_path:
+        os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
+        img.save(out_path)
+    return img
 
 
 def main():
@@ -102,11 +129,13 @@ def main():
 
     rows, csv_path, images = run_pipeline({args.style: [args.prompt]}, conditions, scorer, results_dir,
                                           generator=generator, seed=args.seed,
-                                          skip_existing=args.skip_existing, save_images=args.save_images)
+                                          skip_existing=args.skip_existing, save_images=args.save_images,
+                                          write_csv=args.save_scores)
     print_table(rows)
     if not args.no_figures:
         make_figures(rows, args.figures, figures_dir, images=images, grid_max_prompts=args.grid_prompts)
-    log(f"done. scores -> {csv_path} | images -> {os.path.join(results_dir, 'images')} "
+    scores_dest = csv_path if args.save_scores else "(not written; pass --save-scores)"
+    log(f"done. scores -> {scores_dest} | images -> {os.path.join(results_dir, 'images')} "
         f"| figures -> {figures_dir}")
 
 
