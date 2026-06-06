@@ -29,6 +29,7 @@ def compute_delta(sae, feat, strength, method):
     """Build the additive style delta [d_in, 16, 16] for one style at a given strength."""
     dev = sae.W_dec.device
     with torch.no_grad():
+        
         if method == "uniform":
             # global feature set, identical vector at every patch: sum_f mu[f] * W_dec[idx[f]]
             W   = sae.W_dec[feat["idx"].to(dev)].float()              # [F, d_in] unit-norm directions
