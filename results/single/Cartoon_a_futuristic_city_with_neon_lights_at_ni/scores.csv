@@ -1,0 +1,9 @@
+style,prompt_id,prompt,condition,kind,method,weight,prompt_clip,style_clip,uc_style,content_clip,img_path
+Cartoon,0,a futuristic city with neon lights at night,unstyled,unstyled,,0.0,0.328335,0.212325,0.001368,1.000000,
+Cartoon,0,a futuristic city with neon lights at night,prompted,prompted,,0.0,0.315200,0.234811,0.004075,0.750491,
+Cartoon,0,a futuristic city with neon lights at night,injected_normal_w1,sae,uniform,1.0,0.330864,0.217060,0.000662,0.974302,
+Cartoon,0,a futuristic city with neon lights at night,injected_patches_w1,sae,patch,1.0,0.333232,0.219524,0.000383,0.970064,
+Cartoon,0,a futuristic city with neon lights at night,injected_normal_w2,sae,uniform,2.0,0.317950,0.225445,0.000900,0.922439,
+Cartoon,0,a futuristic city with neon lights at night,injected_patches_w2,sae,patch,2.0,0.313511,0.239528,0.000553,0.909675,
+Cartoon,0,a futuristic city with neon lights at night,injected_normal_w3,sae,uniform,3.0,0.304726,0.236620,0.000829,0.893093,
+Cartoon,0,a futuristic city with neon lights at night,injected_patches_w3,sae,patch,3.0,0.289373,0.249071,0.001264,0.860884,

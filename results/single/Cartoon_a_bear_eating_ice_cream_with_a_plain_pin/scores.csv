@@ -1,0 +1,9 @@
+style,prompt_id,prompt,condition,kind,method,weight,prompt_clip,style_clip,uc_style,content_clip,img_path
+Cartoon,0,a bear eating ice cream with a plain pink background,unstyled,unstyled,,0.0,0.358730,0.211824,0.000288,1.000000,
+Cartoon,0,a bear eating ice cream with a plain pink background,prompted,prompted,,0.0,0.347608,0.230415,0.000123,0.873864,
+Cartoon,0,a bear eating ice cream with a plain pink background,injected_normal_w1,sae,uniform,1.0,0.378084,0.235734,0.000066,0.884956,
+Cartoon,0,a bear eating ice cream with a plain pink background,injected_patches_w1,sae,patch,1.0,0.392193,0.240046,0.000046,0.896550,
+Cartoon,0,a bear eating ice cream with a plain pink background,injected_normal_w2,sae,uniform,2.0,0.298392,0.218304,0.000142,0.898651,
+Cartoon,0,a bear eating ice cream with a plain pink background,injected_patches_w2,sae,patch,2.0,0.352926,0.240933,0.000373,0.883792,
+Cartoon,0,a bear eating ice cream with a plain pink background,injected_normal_w3,sae,uniform,3.0,0.354984,0.233740,0.000278,0.907471,
+Cartoon,0,a bear eating ice cream with a plain pink background,injected_patches_w3,sae,patch,3.0,0.385720,0.242506,0.000261,0.873286,

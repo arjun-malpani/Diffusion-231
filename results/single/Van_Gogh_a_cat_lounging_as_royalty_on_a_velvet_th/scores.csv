@@ -1,0 +1,9 @@
+style,prompt_id,prompt,condition,kind,method,weight,prompt_clip,style_clip,uc_style,content_clip,img_path
+Van_Gogh,0,a cat lounging as royalty on a velvet throne,unstyled,unstyled,,0.0,0.276746,0.170742,0.000007,1.000000,
+Van_Gogh,0,a cat lounging as royalty on a velvet throne,prompted,prompted,,0.0,0.255519,0.324353,0.000116,0.722883,
+Van_Gogh,0,a cat lounging as royalty on a velvet throne,injected_normal_w0.5,sae,uniform,0.5,0.289276,0.183316,0.000020,0.967393,
+Van_Gogh,0,a cat lounging as royalty on a velvet throne,injected_patches_w0.5,sae,patch,0.5,0.283564,0.192808,0.000028,0.967429,
+Van_Gogh,0,a cat lounging as royalty on a velvet throne,injected_normal_w1,sae,uniform,1.0,0.268153,0.229705,0.001535,0.903018,
+Van_Gogh,0,a cat lounging as royalty on a velvet throne,injected_patches_w1,sae,patch,1.0,0.280933,0.221813,0.000519,0.920248,
+Van_Gogh,0,a cat lounging as royalty on a velvet throne,injected_normal_w2,sae,uniform,2.0,0.300351,0.306176,0.009017,0.759695,
+Van_Gogh,0,a cat lounging as royalty on a velvet throne,injected_patches_w2,sae,patch,2.0,0.307312,0.296630,0.003029,0.765052,

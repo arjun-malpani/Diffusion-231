@@ -1,0 +1,9 @@
+style,prompt_id,prompt,condition,kind,method,weight,prompt_clip,style_clip,uc_style,content_clip,img_path
+Monet,0,a river in japan at night with moonlight cherry blossoms,unstyled,unstyled,,0.0,0.350063,0.241660,0.000011,1.000000,
+Monet,0,a river in japan at night with moonlight cherry blossoms,prompted,prompted,,0.0,0.272741,0.307296,0.013615,0.754128,
+Monet,0,a river in japan at night with moonlight cherry blossoms,injected_normal_w2,sae,uniform,2.0,0.350527,0.305495,0.066303,0.819432,
+Monet,0,a river in japan at night with moonlight cherry blossoms,injected_patches_w2,sae,patch,2.0,0.346033,0.291233,0.134249,0.831018,
+Monet,0,a river in japan at night with moonlight cherry blossoms,injected_normal_w3,sae,uniform,3.0,0.319779,0.285928,0.211782,0.733199,
+Monet,0,a river in japan at night with moonlight cherry blossoms,injected_patches_w3,sae,patch,3.0,0.265933,0.278066,0.649874,0.676622,
+Monet,0,a river in japan at night with moonlight cherry blossoms,injected_normal_w4,sae,uniform,4.0,0.293218,0.282182,0.540906,0.722601,
+Monet,0,a river in japan at night with moonlight cherry blossoms,injected_patches_w4,sae,patch,4.0,0.222496,0.267166,0.842133,0.627397,

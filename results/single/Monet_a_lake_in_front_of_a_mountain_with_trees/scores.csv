@@ -1,0 +1,7 @@
+style,prompt_id,prompt,condition,kind,method,weight,prompt_clip,style_clip,uc_style,content_clip,img_path
+Monet,0,a lake in front of a mountain with trees on the sides,unstyled,unstyled,,0.0,0.304960,0.226283,0.000595,1.000000,
+Monet,0,a lake in front of a mountain with trees on the sides,prompted,prompted,,0.0,0.271506,0.308412,0.011542,0.706697,
+Monet,0,a lake in front of a mountain with trees on the sides,injected_normal_w1,sae,uniform,1.0,0.305760,0.236013,0.001226,0.976153,
+Monet,0,a lake in front of a mountain with trees on the sides,injected_patches_w1,sae,patch,1.0,0.313620,0.240259,0.001632,0.973204,
+Monet,0,a lake in front of a mountain with trees on the sides,injected_normal_w2,sae,uniform,2.0,0.302490,0.281081,0.014598,0.855606,
+Monet,0,a lake in front of a mountain with trees on the sides,injected_patches_w2,sae,patch,2.0,0.302362,0.283573,0.016793,0.742111,
