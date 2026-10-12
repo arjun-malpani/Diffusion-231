@@ -1,5 +1,8 @@
 # Diffusion-231
 
+## Manuscript
+
+[Read the final report](paper/CS231n_Final_Report.pdf)
 
 ## Setup
 
