@@ -2,7 +2,7 @@
 
 ## Manuscript
 
-[Read the final report](paper/CS231n_Final_Report.pdf)
+[Read the final report](manuscript.pdf)
 
 ## Setup
 

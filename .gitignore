@@ -29,3 +29,14 @@ UnlearnCanvas/
 # Generated eval outputs (images / figures / score caches; regeneratable)
 results/
 logs/
+
+# Local editor / tool config
+.vscode/
+.claude/
+
+# Reference papers (local only)
+Research/
+research/
+
+# Generated images
+output_img/
